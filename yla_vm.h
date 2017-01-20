@@ -43,6 +43,11 @@
 #define YLA_VM_ERROR_UNKNOWN_COMMAND (-4)
 #define YLA_VM_ERROR_STACK_EMPTY (-5)
 #define YLA_VM_ERROR_STACK_FULL (-6)
+#define YLA_VM_ERROR_STACK_TAIL_TOO_LONG (-7)
+#define YLA_VM_LINKER_ERROR_TABLE_EMPTY (-8)
+#define YLA_VM_LINKER_ERROR_ADDRESS_NOT_FOUND (-9)
+
+#define YLA_WORD_NULL_TERMINATOR 65535
 
 /*
 Executable program structure:
@@ -66,8 +71,8 @@ typedef struct {
 	size_t code_size;
 
 	yla_int_type *vartable;
-    size_t vartable_size;
-
+   size_t vartable_size;
+	
 	size_t pc;
 
 	int last_error;
